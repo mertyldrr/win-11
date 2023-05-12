@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         win11: "url('assets/win11bg.jpg')",
       },
+      fontFamily: {
+        sagoeUI: "SagoeUI",
+      },
     },
   },
   plugins: [],
