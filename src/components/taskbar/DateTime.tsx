@@ -1,7 +1,12 @@
 import moment, { Moment } from "moment";
 import { useEffect, useState } from "react";
 
-export const DateTime = () => {
+type Props = {
+  showDate: boolean;
+  fontSizeRule?: string;
+};
+
+export const DateTime = ({ showDate, fontSizeRule }: Props) => {
   const [time, setTime] = useState<Moment>(moment());
 
   useEffect(() => {
@@ -13,8 +18,12 @@ export const DateTime = () => {
 
   return (
     <div className="flex flex-col">
-      <p className="text-sm">{moment(time).format("HH:mm")}</p>
-      <p className="text-sm">{moment(time).format("DD/MM/YYYY")}</p>
+      <p className={`${fontSizeRule ? fontSizeRule : "text-sm"}`}>
+        {moment(time).format("HH:mm")}
+      </p>
+      {showDate && (
+        <p className="text-sm">{moment(time).format("DD/MM/YYYY")}</p>
+      )}
     </div>
   );
 };
