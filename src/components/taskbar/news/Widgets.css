@@ -1,0 +1,14 @@
+.sidebar {
+  backdrop-filter: blur(1.5rem);
+  width: 760px;
+}
+
+/* Generate a random hue value between 0 and 360 */
+
+.gradient-random {
+  --randHue: random(0, 360);
+  background-image: linear-gradient(
+    transparent 33%,
+    hsl(var(--randHue), 36%, 84%) 75%
+  );
+}

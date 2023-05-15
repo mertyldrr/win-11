@@ -3,7 +3,7 @@ import edge from "../../assets/desktop/edge.png";
 import recyclebin from "../../assets/desktop/recyclebin.png";
 import vscode from "../../assets/desktop/vscode.png";
 import { DraggableItem } from "../DraggableItem";
-import { Sidebar } from "../taskbar/news/Sidebar";
+import { Widgets } from "../taskbar/news/Widgets";
 
 import "./Desktop.css";
 
@@ -67,7 +67,7 @@ export const Desktop = () => {
           </button>
         </DraggableItem>
       </div>
-      <Sidebar />
+      <Widgets />
     </div>
   );
 };
