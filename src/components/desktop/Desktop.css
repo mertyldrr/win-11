@@ -1,0 +1,6 @@
+.desktop-grid {
+  grid-template-columns: repeat(auto-fill, 90px);
+  grid-template-rows: repeat(auto-fill, 80px);
+  padding-top: 6px;
+  gap: 28px 1px;
+}

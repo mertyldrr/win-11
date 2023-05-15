@@ -1,10 +1,10 @@
-import { Taskbar } from "./components/Taskbar";
+import { Desktop } from "./components/desktop/Desktop";
+import { Taskbar } from "./components/taskbar/Taskbar";
 
 const App = () => {
   return (
-    <div className="flex flex-col justify-between h-screen bg-win11 bg-cover">
-      <div className="flex flex-row"></div>
-
+    <div>
+      <Desktop />
       <Taskbar />
     </div>
   );
