@@ -7,6 +7,7 @@ module.exports = {
         win11: "url('assets/win11bg.jpg')",
       },
       fontFamily: {
+        sans: ["SagoeUI", "sans-serif"],
         sagoeUI: "SagoeUI",
       },
     },
