@@ -1,0 +1,7 @@
+.datepicker-container {
+  background-color: rgba(230, 230, 230, 0.95);
+}
+
+.datepicker-animation {
+  transform: translateY(120%);
+}
