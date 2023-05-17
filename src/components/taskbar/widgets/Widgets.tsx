@@ -9,8 +9,8 @@ export const Widgets = () => {
   const isSidebarActive = useSelector(selectIsSidebarActive);
   return (
     <div
-      className={`sidebar absolute inset-3 px-10 py-6 bg-slate-200 bg-opacity-30 rounded-lg overflow-y-scroll transform ease-out duration-500 ${
-        isSidebarActive ? "translate-x-0" : "-translate-x-full -inset-3"
+      className={`sidebar absolute inset-3 px-10 py-6 rounded-lg overflow-y-scroll transform ease-out duration-500 ${
+        isSidebarActive ? "translate-x-0 " : "sidebar-animation"
       }`}
     >
       <div className="flex justify-center text-xl mb-4">
