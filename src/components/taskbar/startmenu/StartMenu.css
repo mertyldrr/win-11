@@ -1,0 +1,44 @@
+.container {
+  width: 640px;
+  background-color: rgba(230, 230, 230, 0.9);
+  /* backdrop-filter: blur(20px); */
+}
+
+.pinned-app {
+  width: 96px;
+  height: 84px;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.recommended-app {
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  flex-basis: 50%;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.all-apps {
+  font-size: 0.7em;
+}
+
+.pinned-app-text {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.recommended-app-text {
+  font-size: 12px;
+  margin-left: 20px;
+}
+
+.startmenu-animation {
+  transform: translateY(120%);
+}
