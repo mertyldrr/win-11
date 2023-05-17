@@ -18,17 +18,30 @@ import {
   selectIsSidebarActive,
   setNewsSidebarActive,
 } from "../../redux/slices/newsSlice";
+import {
+  selectIsStartModalActive,
+  setIsStartModalActive,
+} from "../../redux/slices/startMenuSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { toggleDatepickerModal } from "../../redux/slices/datepickerSlice";
+
+import "./Taskbar.css";
 
 export const Taskbar = () => {
   const isSidebarActive = useSelector(selectIsSidebarActive);
+  const isStartMenuActive = useSelector(selectIsStartModalActive);
+
   const dispatch = useDispatch();
   const toggleSidebar = (isSidebarActive: boolean) => {
     const newIsActive = !isSidebarActive;
     dispatch(setNewsSidebarActive(newIsActive));
   };
+  const toggleStartMenu = (isStartMenuActive: boolean) => {
+    const newIsActive = !isStartMenuActive;
+    dispatch(setIsStartModalActive(newIsActive));
+  };
   return (
-    <div className="absolute bottom-0 w-full h-12 bg-blue-200">
+    <div className="absolute bottom-0 w-full h-12 taskbar-bg">
       <div className="flex justify-between w-full h-full">
         <div className="left flex-grow basis-0">
           <button
@@ -40,7 +53,10 @@ export const Taskbar = () => {
         </div>
 
         <div className="center">
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          <button
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+            onClick={() => toggleStartMenu(isStartMenuActive)}
+          >
             <img className="w-8 h-8" src={win11} alt=""></img>
           </button>
           <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
@@ -76,7 +92,10 @@ export const Taskbar = () => {
           <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2">
             <BsVolumeUp className="w-6 h-6" />
           </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2">
+          <button
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2"
+            onClick={() => dispatch(toggleDatepickerModal())}
+          >
             <DateTime showDate={true} />
           </button>
         </div>

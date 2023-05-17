@@ -1,0 +1,8 @@
+.taskbar-bg {
+  background-color: rgba(240, 240, 240, 0.8);
+  backdrop-filter: saturate(3) blur(20px);
+}
+
+.sidebar-animation {
+  transform: translateX(-110%);
+}
