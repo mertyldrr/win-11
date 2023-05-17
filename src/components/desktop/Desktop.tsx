@@ -3,7 +3,9 @@ import edge from "../../assets/desktop/edge.png";
 import recyclebin from "../../assets/desktop/recyclebin.png";
 import vscode from "../../assets/desktop/vscode.png";
 import { DraggableItem } from "../DraggableItem";
-import { Widgets } from "../taskbar/news/Widgets";
+import { DatePicker } from "../taskbar/date/DatePicker";
+import { StartMenu } from "../taskbar/startmenu/StartMenu";
+import { Widgets } from "../taskbar/widgets/Widgets";
 
 import "./Desktop.css";
 
@@ -13,7 +15,7 @@ export const Desktop = () => {
   const [isSelected3, setIsSelected3] = useState(false);
 
   return (
-    <div className="bg-win11 bg-cover relative h-[calc(100vh-3rem)]">
+    <div className="relative h-[calc(100vh-3rem)]">
       <div className="desktop-grid absolute grid grid-flow-col w-full h-full">
         <DraggableItem>
           <button
@@ -29,7 +31,9 @@ export const Desktop = () => {
               src={recyclebin}
               alt=""
             ></img>
-            Recycle Bin
+            <p className="desktop-text-shadow text-xs text-white drop-shadow-md">
+              Recycle Bin
+            </p>
           </button>
         </DraggableItem>
         <DraggableItem>
@@ -46,13 +50,13 @@ export const Desktop = () => {
               src={vscode}
               alt=""
             ></img>
-            VSCode
+            <p className="desktop-text-shadow text-xs text-white">VSCode</p>
           </button>
         </DraggableItem>
         <DraggableItem>
           <button
             onClick={() => setIsSelected3(true)}
-            className={`h-full w-full flex flex-col justify-center items-center cursor-default text-sm ${
+            className={`h-full w-full flex flex-col justify-center items-center cursor-default ${
               isSelected3
                 ? "bg-blue-500 bg-opacity-20"
                 : "hover:bg-blue-500 hover:bg-opacity-20"
@@ -63,11 +67,13 @@ export const Desktop = () => {
               src={edge}
               alt=""
             ></img>
-            Edge
+            <p className="desktop-text-shadow text-xs text-white">Edge</p>
           </button>
         </DraggableItem>
       </div>
       <Widgets />
+      <StartMenu />
+      <DatePicker />
     </div>
   );
 };
