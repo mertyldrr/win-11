@@ -3,7 +3,7 @@ import { Taskbar } from "./components/taskbar/Taskbar";
 
 const App = () => {
   return (
-    <div>
+    <div className="bg-win11 bg-cover bg-center h-screen overflow-hidden">
       <Desktop />
       <Taskbar />
     </div>
