@@ -1,20 +1,12 @@
-import { DragOptions, useDraggable } from "@neodrag/react";
-import { PropsWithChildren, useRef } from "react";
+import Draggable from "react-draggable";
+import { PropsWithChildren } from "react";
 
 export const DraggableItem = ({ children }: PropsWithChildren) => {
-  const draggableRef = useRef(null);
-
-  const options: DragOptions = {
-    grid: [80, 90],
-    bounds: "parent",
-  };
-  useDraggable(draggableRef, options);
   return (
-    <div
-      className="flex flex-col justify-center items-center"
-      ref={draggableRef}
-    >
-      {children}
-    </div>
+    <Draggable axis="both" handle=".handle" scale={1}>
+      <div className="handle flex flex-col justify-center items-center w-full h-full">
+        {children}
+      </div>
+    </Draggable>
   );
 };
