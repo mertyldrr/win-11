@@ -10,9 +10,8 @@ const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    setNewsSidebarActive(state, action) {
-      const isActive = action.payload;
-      state.isSidebarActive = isActive;
+    toggleNewsSidebar(state) {
+      state.isSidebarActive = !state.isSidebarActive;
     },
     setNews(state, action) {
       state.news = action.payload;
@@ -20,7 +19,7 @@ const newsSlice = createSlice({
   },
 });
 
-export const { setNewsSidebarActive, setNews } = newsSlice.actions;
+export const { toggleNewsSidebar, setNews } = newsSlice.actions;
 export default newsSlice.reducer;
 
 export const selectIsSidebarActive = (state: RootState) =>

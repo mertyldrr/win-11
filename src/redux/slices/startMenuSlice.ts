@@ -9,14 +9,13 @@ const startMenuSlice = createSlice({
   name: "startMenu",
   initialState,
   reducers: {
-    setIsStartModalActive(state, action) {
-      const isActive = action.payload;
-      state.isStartModalActive = isActive;
+    toggleStartModal(state) {
+      state.isStartModalActive = !state.isStartModalActive;
     },
   },
 });
 
-export const { setIsStartModalActive } = startMenuSlice.actions;
+export const { toggleStartModal } = startMenuSlice.actions;
 export default startMenuSlice.reducer;
 
 export const selectIsStartModalActive = (state: RootState) =>
