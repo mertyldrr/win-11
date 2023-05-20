@@ -112,9 +112,7 @@ export const Frame = ({
               </button>
             </div>
           </div>
-          <div className="h-full w-full rounded-b-lg overflow-hidden">
-            {renderApp(appName)}
-          </div>
+          <div className="h-full w-full rounded-b-lg">{renderApp(appName)}</div>
         </div>
       </Draggable>
     </motion.div>

@@ -1,5 +1,6 @@
-import { account, arrowClockwise, arrowLeft } from "../../../constants";
+import account from "../../../assets/ui/defAccount.png";
 import { ReactComponent as ArrowClockwise } from "../../../assets/ui/arrowClockwise.svg";
+import { ReactComponent as ArrowLeft } from "../../../assets/ui/arrowLeft.svg";
 import { Bookmarks } from "./Bookmarks";
 
 interface EdgeProps {
@@ -12,10 +13,9 @@ export const Edge: React.FC<EdgeProps> = () => {
       <div className="w-full flex flex-row justify-between items-center h-12">
         <div className="flex flex-row justify-center items-center h-4/5 space-x-2 mx-2">
           <button className="h-full cursor-default hover:bg-gray-400 hover:bg-opacity-30 px-2 rounded-sm">
-            <img src={arrowLeft} alt="" />
+            <ArrowLeft />
           </button>
           <button className="h-full cursor-default hover:bg-gray-400 hover:bg-opacity-30 px-2 rounded-sm">
-            {/* <img src={arrowClockwise} alt="" /> */}
             <ArrowClockwise />
           </button>
         </div>
@@ -24,9 +24,9 @@ export const Edge: React.FC<EdgeProps> = () => {
             <input
               className="text-sm w-full h-full outline-none"
               type="search"
-              autoFocus={true}
+              // autoFocus={true}
               defaultValue={"https://www.bing.com"}
-            ></input>
+            />
           </div>
         </div>
 

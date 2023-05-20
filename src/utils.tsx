@@ -34,7 +34,7 @@ export const getWindowName = (appName: string) => {
     case "edge":
       return "Microsoft Edge";
     case "vscode":
-      return "Vscode";
+      return "Code";
     case "pdf":
       return "Adobe Acrobat";
   }
