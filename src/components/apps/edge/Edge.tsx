@@ -9,7 +9,7 @@ interface EdgeProps {
 
 export const Edge: React.FC<EdgeProps> = () => {
   return (
-    <div className="flex flex-col w-full h-full bg-slate-200">
+    <div className="flex flex-col w-full h-full bg-slate-200 rounded-b-lg">
       <div className="w-full flex flex-row justify-between items-center h-12">
         <div className="flex flex-row justify-center items-center h-4/5 space-x-2 mx-2">
           <button className="h-full cursor-default hover:bg-gray-400 hover:bg-opacity-30 px-2 rounded-sm">
@@ -43,7 +43,7 @@ export const Edge: React.FC<EdgeProps> = () => {
       <iframe
         title="edge"
         src={"https://www.bing.com"}
-        className="w-full h-full"
+        className="w-full h-full rounded-b-lg"
       />
     </div>
   );

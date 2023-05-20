@@ -34,7 +34,7 @@ export const Desktop = () => {
   };
 
   return (
-    <div className="relative h-[calc(100vh-3rem)] w-screen overflow-hidden">
+    <div className="relative h-[calc(100vh-3rem)] w-screen">
       <div className="desktop-grid absolute grid grid-flow-col w-full h-full">
         <button
           onClick={() => setIsSelected(true)}
