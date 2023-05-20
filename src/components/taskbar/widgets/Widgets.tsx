@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectIsSidebarActive } from "../../../redux/slices/newsSlice";
 import { DateTime } from "../DateTime";
-import newData from "./api-cache.json";
+import { apiCache } from "../../../constants";
 import { NewsColumn } from "./NewsColumn";
 import "./Widgets.css";
 
@@ -19,7 +19,7 @@ export const Widgets = () => {
       <div className="flex w-full min-w-0 flex-1 ">
         {[0, 1].map((colIndex) => (
           <div key={colIndex} className="flex w-1/2 px-2 flex-col space-y-4">
-            {newData.articles.map((article, index) => {
+            {apiCache.articles.map((article, index) => {
               // return null if image is not available
               if (!article.urlToImage || index % 2 !== colIndex) return null;
               return <NewsColumn key={index} article={article} index={index} />;
