@@ -1,6 +1,4 @@
-import { account } from "../../../constants";
-import { ReactComponent as ArrowClockwise } from "../../../assets/ui/arrowClockwise.svg";
-import { ReactComponent as ArrowLeft } from "../../../assets/ui/arrowLeft.svg";
+import { account, arrowClockwise, arrowLeft } from "../../../constants";
 import { Bookmarks } from "./Bookmarks";
 
 interface EdgeProps {
@@ -13,10 +11,10 @@ export const Edge: React.FC<EdgeProps> = () => {
       <div className="w-full flex flex-row justify-between items-center h-12">
         <div className="flex flex-row justify-center items-center h-4/5 space-x-2 mx-2">
           <button className="h-full cursor-default hover:bg-gray-400 hover:bg-opacity-30 px-2 rounded-sm">
-            <ArrowLeft />
+            <img src={arrowLeft} alt=""></img>
           </button>
           <button className="h-full cursor-default hover:bg-gray-400 hover:bg-opacity-30 px-2 rounded-sm">
-            <ArrowClockwise />
+            <img src={arrowClockwise} alt=""></img>
           </button>
         </div>
         <div className="bg-white flex-1 px-4 mr-2 h-4/5 rounded-2xl">

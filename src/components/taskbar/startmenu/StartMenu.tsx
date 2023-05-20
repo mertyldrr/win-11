@@ -1,6 +1,3 @@
-import { ReactComponent as NetflixLogo } from "../../../assets/taskbar/netflixLogo.svg";
-import { ReactComponent as SpotifyLogo } from "../../../assets/taskbar/spotifyLogo.svg";
-
 import {
   edge,
   calculator,
@@ -18,6 +15,8 @@ import {
   teams,
   notepad,
   xbox,
+  spotify,
+  netflix,
 } from "../../../constants";
 
 import { FaChevronRight } from "react-icons/fa";
@@ -65,11 +64,11 @@ export const StartMenu = () => {
             <p className="pinned-app-text">File Explorer</p>
           </button>
           <button className="pinned-app hover:bg-white hover:bg-opacity-50 rounded-lg">
-            <SpotifyLogo className="w-8 h-8" />
+            <img className="w-8 h-8" src={spotify} alt="" />{" "}
             <p className="pinned-app-text">Spotify</p>
           </button>
           <button className="pinned-app hover:bg-white hover:bg-opacity-50 rounded-lg">
-            <NetflixLogo className="w-8 h-8" />
+            <img className="w-8 h-8" src={netflix} alt="" />{" "}
             <p className="pinned-app-text">Netflix</p>
           </button>
           <button className="pinned-app hover:bg-white hover:bg-opacity-50 rounded-lg">
@@ -144,7 +143,7 @@ export const StartMenu = () => {
             <p className="recommended-app-text">Twitter</p>
           </button>
           <button className="recommended-app hover:bg-white hover:bg-opacity-50 rounded-lg">
-            <SpotifyLogo className="w-8 h-8" />
+            <img className="w-8 h-8" src={spotify} alt="" />
             <p className="recommended-app-text">Spotify</p>
           </button>
         </div>

@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import { ReactComponent as SpotifyLogo } from "../../assets/taskbar/spotifyLogo.svg";
-import { ReactComponent as NetflixLogo } from "../../assets/taskbar/netflixLogo.svg";
 
 import {
   win11,
@@ -9,6 +7,8 @@ import {
   settings,
   edge,
   widgets,
+  spotify,
+  netflix,
 } from "../../constants";
 
 import { FiSearch } from "react-icons/fi";
@@ -86,13 +86,13 @@ export const Taskbar = () => {
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
           >
-            <SpotifyLogo className="w-8 h-8" />
+            <img className="w-8 h-8" src={spotify} alt=""></img>{" "}
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
           >
-            <NetflixLogo className="w-8 h-8" />
+            <img className="w-8 h-8" src={netflix} alt=""></img>{" "}
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.85 }}

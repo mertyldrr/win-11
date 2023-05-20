@@ -52,7 +52,12 @@ export const recycleBin =
   "https://github.com/mertyldrr/win-11/blob/master/src/assets/desktop/recyclebin.png?raw=true";
 export const vscode =
   "https://github.com/mertyldrr/win-11/blob/master/src/assets/desktop/vscode.png?raw=true";
-
+export const pdf =
+  "https://raw.githubusercontent.com/mertyldrr/win-11/f23b1b3b7e2d4ca5960b7fba2a32475f9dd75072/src/assets/desktop/pdf.svg";
+export const netflix =
+  "https://raw.githubusercontent.com/mertyldrr/win-11/f23b1b3b7e2d4ca5960b7fba2a32475f9dd75072/src/assets/taskbar/netflixLogo.svg";
+export const spotify =
+  "https://raw.githubusercontent.com/mertyldrr/win-11/f23b1b3b7e2d4ca5960b7fba2a32475f9dd75072/src/assets/taskbar/spotifyLogo.svg";
 export const apiCache = {
   status: "ok",
   totalResults: 35,

@@ -1,27 +1,24 @@
-import { ReactComponent as PdfLogo } from "./assets/desktop/pdf.svg";
-import { ReactComponent as NetflixLogo } from "./assets/taskbar/netflixLogo.svg";
-import { edge } from "./constants";
-import { ReactComponent as SpotifyLogo } from "./assets/taskbar/spotifyLogo.svg";
+import { edge, pdf, netflix, spotify } from "./constants";
 import { Edge } from "./components/apps/edge/Edge";
 import { Pdf } from "./components/apps/pdf/Pdf";
 
 export const getIcon = (appName: string, w: string, h: string) => {
   switch (appName) {
     case "netflix":
-      return <NetflixLogo className={`${w} ${h}`} />;
+      return <img className={`${w} ${h}`} src={netflix} alt="" />;
     case "edge":
       return <img className={`${w} ${h}`} src={edge} alt="" />;
     case "spotify":
-      return <SpotifyLogo className={`${w} ${h}`} />;
+      return <img className={`${w} ${h}`} src={spotify} alt="" />;
     case "pdf":
-      return <PdfLogo className={`${w} ${h}`} />;
+      return <img className={`${w} ${h}`} src={pdf} alt="" />;
   }
 };
 
 export const renderApp = (appName: string) => {
   switch (appName) {
     case "edge":
-      return <Edge url="s" />;
+      return <Edge url="" />;
     case "pdf":
       return <Pdf />;
   }
