@@ -7,6 +7,7 @@ export const Pdf = () => {
         type="application/pdf"
       >
         <iframe
+          className="w-full h-full rounded-lg"
           title="pdf"
           src="https://docs.google.com/viewer?url=https://static.mertyildirir.com/media/cv/mert_yildirir_cv.pdf&embedded=true"
         />
