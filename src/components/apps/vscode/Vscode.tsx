@@ -1,9 +1,11 @@
-export const Pdf = () => {
+import { sandboxUrl } from "../../../constants";
+
+export const Vscode = () => {
   return (
     <div className="flex flex-col w-full h-full bg-slate-200">
       <iframe
-        title="pdf"
-        src={"https://static.mertyildirir.com/media/cv/mert_yildirir_cv.pdf"}
+        title="vscode"
+        src={sandboxUrl}
         className="w-full h-full rounded-lg"
       />
     </div>

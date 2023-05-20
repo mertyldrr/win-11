@@ -50,7 +50,7 @@ export const Desktop = () => {
           </p>
         </button>
         <button
-          onClick={() => setIsSelected2(true)}
+          onClick={() => openApp("vscode")}
           className={`h-full w-full flex flex-col justify-center items-center cursor-default text-sm ${
             isSelected2
               ? "bg-blue-500 bg-opacity-20 hover:bg-blue-500 hover:bg-opacity-20"
