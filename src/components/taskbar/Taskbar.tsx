@@ -1,12 +1,15 @@
+import { motion } from "framer-motion";
 import { ReactComponent as SpotifyLogo } from "../../assets/taskbar/spotifyLogo.svg";
 import { ReactComponent as NetflixLogo } from "../../assets/taskbar/netflixLogo.svg";
 
-import win11 from "../../assets/taskbar/win11.png";
-import fileExplorer from "../../assets/taskbar/fileExplorer.png";
-import winStore from "../../assets/taskbar/winStore.png";
-import settings from "../../assets/taskbar/settings.png";
-import edge from "../../assets/taskbar/edge.png";
-import widgets from "../../assets/taskbar/widgets.png";
+import {
+  win11,
+  fileExplorer,
+  winStore,
+  settings,
+  edge,
+  widgets,
+} from "../../constants";
 
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineWifi } from "react-icons/ai";
@@ -14,90 +17,131 @@ import { BsVolumeUp } from "react-icons/bs";
 import { RiBatteryChargeLine } from "react-icons/ri";
 import { DateTime } from "./DateTime";
 
-import {
-  selectIsSidebarActive,
-  setNewsSidebarActive,
-} from "../../redux/slices/newsSlice";
-import {
-  selectIsStartModalActive,
-  setIsStartModalActive,
-} from "../../redux/slices/startMenuSlice";
+import { toggleNewsSidebar } from "../../redux/slices/newsSlice";
+import { toggleStartModal } from "../../redux/slices/startMenuSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleDatepickerModal } from "../../redux/slices/datepickerSlice";
 
 import "./Taskbar.css";
+import { toggleMinimizeApp, selectApps } from "../../redux/slices/appSlice";
+import { getIcon } from "../../utils";
 
 export const Taskbar = () => {
-  const isSidebarActive = useSelector(selectIsSidebarActive);
-  const isStartMenuActive = useSelector(selectIsStartModalActive);
+  const apps = useSelector(selectApps);
 
   const dispatch = useDispatch();
-  const toggleSidebar = (isSidebarActive: boolean) => {
-    const newIsActive = !isSidebarActive;
-    dispatch(setNewsSidebarActive(newIsActive));
+  const toggleSidebar = () => {
+    dispatch(toggleNewsSidebar());
   };
-  const toggleStartMenu = (isStartMenuActive: boolean) => {
-    const newIsActive = !isStartMenuActive;
-    dispatch(setIsStartModalActive(newIsActive));
+  const toggleStartMenu = () => {
+    dispatch(toggleStartModal());
   };
   return (
     <div className="absolute bottom-0 w-full h-12 taskbar-bg">
       <div className="flex justify-between w-full h-full">
         <div className="left flex-grow basis-0">
-          <button
+          <motion.button
+            whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
-            onClick={() => toggleSidebar(isSidebarActive)}
+            onClick={() => toggleSidebar()}
           >
             <img className="w-8 h-8" src={widgets} alt=""></img>
-          </button>
+          </motion.button>
         </div>
 
         <div className="center">
-          <button
+          <motion.button
+            whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
-            onClick={() => toggleStartMenu(isStartMenuActive)}
+            onClick={() => toggleStartMenu()}
           >
             <img className="w-8 h-8" src={win11} alt=""></img>
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+          >
             <img className="w-8 h-8" src={winStore} alt=""></img>
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+          >
             <FiSearch className="rotate-90 w-8 h-8" />
-          </button>
+          </motion.button>
 
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+          >
             <img className="w-8 h-8" src={fileExplorer} alt=""></img>
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+          >
             <img className="w-8 h-8" src={edge} alt=""></img>
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+          >
             <SpotifyLogo className="w-8 h-8" />
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+          >
             <NetflixLogo className="w-8 h-8" />
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+          >
             <img className="w-8 h-8" src={settings} alt=""></img>
-          </button>
+          </motion.button>
+          {apps
+            .filter((app) => app.isMinimized || app.isActive)
+            .map((app, index) => {
+              const icon = getIcon(app.name, "w-8", "h-8");
+              return (
+                <motion.button
+                  key={index}
+                  whileTap={{ scale: 0.85 }}
+                  onClick={() => dispatch(toggleMinimizeApp(app.id))}
+                  className="h-full cursor-default bg-gray-100 bg-opacity-70 px-4 mr-1 border-b-blue-400 relative"
+                >
+                  {icon}
+                  <div className="border-b-2 w-11/12 mx-auto border-blue-400 absolute bottom-1 rounded-b-full left-0 right-0" />
+                </motion.button>
+              );
+            })}
         </div>
         <div className="right flex flex-grow basis-0 justify-end items-center">
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2">
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2"
+          >
             <RiBatteryChargeLine className="w-6 h-6" />
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2"
+          >
             <AiOutlineWifi className="w-6 h-6" />
-          </button>
-          <button className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2">
+          </motion.button>
+          <motion.button
+            whileTap={{ scale: 0.85 }}
+            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2"
+          >
             <BsVolumeUp className="w-6 h-6" />
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2"
             onClick={() => dispatch(toggleDatepickerModal())}
           >
             <DateTime showDate={true} />
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>
