@@ -1,23 +1,44 @@
-import {
-  edge,
-  calculator,
-  settings,
-  camera,
-  fileExplorer,
-  whiteboard,
-  twitter,
-  terminal,
-  discord,
-  mail,
-  github,
-  paint,
-  winStore,
-  teams,
-  notepad,
-  xbox,
-  spotify,
-  netflix,
-} from "../../../constants";
+// import {
+//   edge,
+//   calculator,
+//   settings,
+//   camera,
+//   fileExplorer,
+//   whiteboard,
+//   twitter,
+//   terminal,
+//   discord,
+//   mail,
+//   github,
+//   paint,
+//   winStore,
+//   teams,
+//   notepad,
+//   xbox,
+//   spotify,
+//   netflix,
+// } from "../../../constants";
+
+import netflix from "../../../assets/taskbar/netflixLogo.svg";
+import spotify from "../../../assets/taskbar/spotifyLogo.svg";
+
+import edge from "../../../assets/taskbar/edge.png";
+import fileExplorer from "../../../assets/taskbar/fileExplorer.png";
+import settings from "../../../assets/taskbar/settings.png";
+import winStore from "../../../assets/taskbar/winStore.png";
+
+import calculator from "../../../assets/startmenu/calculator.png";
+import camera from "../../../assets/startmenu/camera.png";
+import whiteboard from "../../../assets/startmenu/board.png";
+import mail from "../../../assets/startmenu/mail.png";
+import github from "../../../assets/startmenu/github.png";
+import xbox from "../../../assets/startmenu/xbox.png";
+import teams from "../../../assets/startmenu/teams.png";
+import terminal from "../../../assets/startmenu/terminal.png";
+import paint from "../../../assets/startmenu/paint.png";
+import discord from "../../../assets/startmenu/discord.png";
+import twitter from "../../../assets/startmenu/twitter.png";
+import notepad from "../../../assets/startmenu/notepad.png";
 
 import { FaChevronRight } from "react-icons/fa";
 

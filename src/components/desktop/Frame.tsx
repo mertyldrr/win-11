@@ -8,7 +8,9 @@ import {
 } from "../../redux/slices/appSlice";
 import { useState } from "react";
 import { getIcon, getWindowName, renderApp } from "../../utils";
-import { minimize, maxmin, close } from "../../constants";
+import close from "../../assets/ui/close.png";
+import maxmin from "../../assets/ui/maxmin.png";
+import minimize from "../../assets/ui/minimize.png";
 
 const itemVariants: Variants = {
   start: {

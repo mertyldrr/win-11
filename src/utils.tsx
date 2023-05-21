@@ -1,4 +1,8 @@
-import { edge, pdf, netflix, spotify, vscode } from "./constants";
+import edge from "./assets/desktop/edge.png";
+import pdf from "./assets/desktop/pdf.svg";
+import vscode from "./assets/desktop/vscode.png";
+import netflix from "./assets/taskbar/netflixLogo.svg";
+import spotify from "./assets/taskbar/spotifyLogo.svg";
 import { Edge } from "./components/apps/edge/Edge";
 import { Pdf } from "./components/apps/pdf/Pdf";
 import { Vscode } from "./components/apps/vscode/Vscode";

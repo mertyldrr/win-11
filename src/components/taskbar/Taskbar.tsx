@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
 
-import {
-  win11,
-  fileExplorer,
-  winStore,
-  settings,
-  edge,
-  widgets,
-  spotify,
-  netflix,
-} from "../../constants";
+import spotify from "../../assets/taskbar/spotifyLogo.svg";
+import netflix from "../../assets/taskbar/netflixLogo.svg";
+
+import win11 from "../../assets/taskbar/win11.png";
+import fileExplorer from "../../assets/taskbar/fileExplorer.png";
+import winStore from "../../assets/taskbar/winStore.png";
+import settings from "../../assets/taskbar/settings.png";
+import edge from "../../assets/taskbar/edge.png";
+import widgets from "../../assets/taskbar/widgets.png";
 
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineWifi } from "react-icons/ai";

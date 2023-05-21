@@ -1,4 +1,5 @@
-import { github } from "../../../constants";
+import github from "../../../assets/startmenu/github.png";
+
 export const Bookmarks = () => {
   return (
     <div className="flex flex-row items-center text-[0.75rem] h-12 space-x-4 ml-2">

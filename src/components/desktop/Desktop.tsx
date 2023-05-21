@@ -3,7 +3,11 @@ import { DatePicker } from "../taskbar/date/DatePicker";
 import { StartMenu } from "../taskbar/startmenu/StartMenu";
 import { Widgets } from "../taskbar/widgets/Widgets";
 
-import { edge, recycleBin, vscode, pdf } from "../../constants";
+import pdf from "../../assets/desktop/pdf.svg";
+
+import edge from "../../assets/desktop/edge.png";
+import recyclebin from "../../assets/desktop/recyclebin.png";
+import vscode from "../../assets/desktop/vscode.png";
 
 import { Frame } from "./Frame";
 import { v4 as uuidv4 } from "uuid";
@@ -44,7 +48,7 @@ export const Desktop = () => {
               : "hover:bg-blue-500 hover:bg-opacity-20"
           }`}
         >
-          <img className="w-12 h-12" src={recycleBin} alt=""></img>
+          <img className="w-12 h-12" src={recyclebin} alt=""></img>
           <p className="desktop-text-shadow py-1 text-xs text-white drop-shadow-md">
             Recycle Bin
           </p>
@@ -79,7 +83,7 @@ export const Desktop = () => {
               : "hover:bg-blue-500 hover:bg-opacity-20"
           }`}
         >
-          <img className="w-12 h-12" src={pdf} alt=""></img>
+          <img className="w-12 h-12" src={pdf} alt="" />
           <p className="desktop-text-shadow text-xs py-1 text-white">
             mert_cv.pdf
           </p>
