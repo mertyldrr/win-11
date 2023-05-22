@@ -1,12 +1,28 @@
-import { useSelector } from "react-redux";
-import { selectIsSidebarActive } from "../../../redux/slices/newsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectIsSidebarActive,
+  selectNews,
+  setNews,
+} from "../../../redux/slices/newsSlice";
 import { DateTime } from "../DateTime";
-import { apiCache } from "../../../constants";
 import { NewsColumn } from "./NewsColumn";
 import "./Widgets.css";
+import axios from "axios";
+import { useEffect } from "react";
 
 export const Widgets = () => {
+  const dispatch = useDispatch();
   const isSidebarActive = useSelector(selectIsSidebarActive);
+  const news = useSelector(selectNews);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      const res = await axios.get(`${process.env.REACT_APP_NEWS_ENDPOINT}`);
+      dispatch(setNews(res.data));
+    };
+    fetchNews();
+  }, [dispatch]);
+
   return (
     <div
       className={`sidebar absolute inset-3 px-10 py-6 rounded-lg overflow-y-scroll transform ease-out duration-500 ${
@@ -19,11 +35,14 @@ export const Widgets = () => {
       <div className="flex w-full min-w-0 flex-1 ">
         {[0, 1].map((colIndex) => (
           <div key={colIndex} className="flex w-1/2 px-2 flex-col space-y-4">
-            {apiCache.articles.map((article, index) => {
-              // return null if image is not available
-              if (!article.urlToImage || index % 2 !== colIndex) return null;
-              return <NewsColumn key={index} article={article} index={index} />;
-            })}
+            {news &&
+              news.map((article, index) => {
+                // return null if image is not available
+                if (!article.urlToImage || index % 2 !== colIndex) return null;
+                return (
+                  <NewsColumn key={index} article={article} index={index} />
+                );
+              })}
           </div>
         ))}
       </div>

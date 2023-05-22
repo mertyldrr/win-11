@@ -1,9 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
-const initialState = {
+type Article = {
+  source: {
+    id: string;
+    name: string;
+  };
+  author: string | null;
+  title: string;
+  description: string;
+  url: string;
+  urlToImage: string;
+  publishedAt: string;
+  content: string;
+};
+
+type NewsState = {
+  isSidebarActive: boolean;
+  news: Article[];
+};
+
+const initialState: NewsState = {
   isSidebarActive: false,
-  news: null,
+  news: [],
 };
 
 const newsSlice = createSlice({
@@ -13,7 +32,7 @@ const newsSlice = createSlice({
     toggleNewsSidebar(state) {
       state.isSidebarActive = !state.isSidebarActive;
     },
-    setNews(state, action) {
+    setNews(state, action: PayloadAction<Article[]>) {
       state.news = action.payload;
     },
   },
@@ -22,5 +41,6 @@ const newsSlice = createSlice({
 export const { toggleNewsSidebar, setNews } = newsSlice.actions;
 export default newsSlice.reducer;
 
+export const selectNews = (state: RootState) => state.news.news;
 export const selectIsSidebarActive = (state: RootState) =>
   state.news.isSidebarActive;
