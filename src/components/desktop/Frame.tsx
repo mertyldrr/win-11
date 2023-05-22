@@ -82,7 +82,9 @@ export const Frame = ({
       >
         <div
           className={`draggable-handle ${
-            isFullscreen ? "w-full h-full" : "w-5/6 h-5/6 inset-[7%]"
+            isFullscreen
+              ? "w-full h-full inset-[0%] absolute"
+              : "w-5/6 h-5/6 inset-[7%] absolute"
           } bg-gray-300 touch-none rounded-lg absolute`}
         >
           <div className="flex flex-row justify-between items-center h-9 w-full">
