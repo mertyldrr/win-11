@@ -1,13 +1,9 @@
 import { motion } from "framer-motion";
 
-import spotify from "../../assets/taskbar/spotifyLogo.svg";
-import netflix from "../../assets/taskbar/netflixLogo.svg";
-
 import win11 from "../../assets/taskbar/win11.png";
 import fileExplorer from "../../assets/taskbar/fileExplorer.png";
 import winStore from "../../assets/taskbar/winStore.png";
 import settings from "../../assets/taskbar/settings.png";
-import edge from "../../assets/taskbar/edge.png";
 import widgets from "../../assets/taskbar/widgets.png";
 
 import { FiSearch } from "react-icons/fi";
@@ -35,6 +31,7 @@ export const Taskbar = () => {
   const toggleStartMenu = () => {
     dispatch(toggleStartModal());
   };
+
   return (
     <div className="absolute bottom-0 w-full h-12 taskbar-bg">
       <div className="flex justify-between w-full h-full">
@@ -44,7 +41,7 @@ export const Taskbar = () => {
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
             onClick={() => toggleSidebar()}
           >
-            <img className="w-8 h-8" src={widgets} alt=""></img>
+            <img className="w-8 h-8" src={widgets} alt="" />
           </motion.button>
         </div>
 
@@ -54,13 +51,13 @@ export const Taskbar = () => {
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
             onClick={() => toggleStartMenu()}
           >
-            <img className="w-8 h-8" src={win11} alt=""></img>
+            <img className="w-8 h-8" src={win11} alt="" />
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
           >
-            <img className="w-8 h-8" src={winStore} alt=""></img>
+            <img className="w-8 h-8" src={winStore} alt="" />
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.85 }}
@@ -73,31 +70,13 @@ export const Taskbar = () => {
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
           >
-            <img className="w-8 h-8" src={fileExplorer} alt=""></img>
+            <img className="w-8 h-8" src={fileExplorer} alt="" />
           </motion.button>
           <motion.button
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
           >
-            <img className="w-8 h-8" src={edge} alt=""></img>
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.85 }}
-            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
-          >
-            <img className="w-8 h-8" src={spotify} alt=""></img>{" "}
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.85 }}
-            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
-          >
-            <img className="w-8 h-8" src={netflix} alt=""></img>{" "}
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.85 }}
-            className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
-          >
-            <img className="w-8 h-8" src={settings} alt=""></img>
+            <img className="w-8 h-8" src={settings} alt="" />
           </motion.button>
           {apps
             .filter((app) => app.isMinimized || app.isActive)
