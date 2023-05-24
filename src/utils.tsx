@@ -19,17 +19,23 @@ export const getIcon = (appName: string, w: string, h: string) => {
       return <img className={`${w} ${h}`} src={spotify} alt="" />;
     case "pdf":
       return <img className={`${w} ${h}`} src={pdf} alt="" />;
+    default:
+      return <img className={`${w} ${h}`} src={edge} alt="" />;
   }
 };
 
 export const renderApp = (appName: string) => {
   switch (appName) {
     case "edge":
-      return <Edge url="" />;
+      return <Edge />;
     case "vscode":
       return <Vscode />;
     case "pdf":
       return <Pdf />;
+    case "lotr":
+      return <Edge url={"https://mertyldrr.github.io/lotr/"} />;
+    case "weather":
+      return <Edge url={"https://mertyldrr.github.io/weather-app/"} />;
   }
 };
 
@@ -41,5 +47,7 @@ export const getWindowName = (appName: string) => {
       return "Code";
     case "pdf":
       return "Adobe Acrobat";
+    default:
+      return "Microsoft Edge";
   }
 };

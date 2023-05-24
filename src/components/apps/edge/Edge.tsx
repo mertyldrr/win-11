@@ -2,12 +2,35 @@ import account from "../../../assets/ui/defAccount.png";
 import arrowClockwise from "../../../assets/ui/arrowClockwise.svg";
 import arrowLeft from "../../../assets/ui/arrowLeft.svg";
 import { Bookmarks } from "./Bookmarks";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectSearchText,
+  setSearchText,
+} from "../../../redux/slices/searchSlice";
+import { debounce } from "lodash";
+import { useState } from "react";
+import { defaultBrowserUrl } from "../../../constants";
+import { Input } from "../../Input";
 
 interface EdgeProps {
-  url: string;
+  url?: string;
 }
 
-export const Edge: React.FC<EdgeProps> = () => {
+export const Edge: React.FC<EdgeProps> = ({ url }) => {
+  const [localSearchText, setLocalSearchText] = useState<string>("");
+  const searchText = useSelector(selectSearchText);
+  const dispatch = useDispatch();
+  const debouncedSearchTextUpdate = debounce((searchText: string) => {
+    setLocalSearchText(searchText);
+  }, 300);
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      dispatch(setSearchText(localSearchText));
+    }
+  };
+
   return (
     <div className="flex flex-col w-full h-full bg-slate-200 rounded-b-lg">
       <div className="w-full flex flex-row justify-between items-center h-12">
@@ -21,11 +44,12 @@ export const Edge: React.FC<EdgeProps> = () => {
         </div>
         <div className="bg-white flex-1 px-4 mr-2 h-4/5 rounded-2xl">
           <div className="text-sm w-full h-full">
-            <input
-              className="text-sm w-full h-full outline-none"
-              type="search"
-              // autoFocus={true}
-              defaultValue={"https://www.bing.com"}
+            <Input
+              twClassName={"text-sm w-full h-full outline-none"}
+              type={"search"}
+              defaultValue={url ? url : defaultBrowserUrl}
+              onChange={(e) => debouncedSearchTextUpdate(e.target.value)}
+              onKeyDown={handleKeyDown}
             />
           </div>
         </div>
@@ -42,7 +66,7 @@ export const Edge: React.FC<EdgeProps> = () => {
       <Bookmarks />
       <iframe
         title="edge"
-        src={"https://www.bing.com"}
+        src={url ? url : searchText}
         className="w-full h-full rounded-b-lg"
       />
     </div>

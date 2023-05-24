@@ -4,6 +4,8 @@ import { StartMenu } from "../taskbar/startmenu/StartMenu";
 import { Widgets } from "../taskbar/widgets/Widgets";
 
 import pdf from "../../assets/desktop/pdf.svg";
+import weather from "../../assets/desktop/weather.png";
+import ring from "../../assets/desktop/ring.svg";
 
 import edge from "../../assets/desktop/edge.png";
 import recyclebin from "../../assets/desktop/recyclebin.png";
@@ -86,6 +88,32 @@ export const Desktop = () => {
           <img className="w-12 h-12" src={pdf} alt="" />
           <p className="desktop-text-shadow text-xs py-1 text-white">
             mert_cv.pdf
+          </p>
+        </button>
+        <button
+          onClick={() => openApp("lotr")}
+          className={`h-full w-full flex flex-col justify-center items-center cursor-default ${
+            isSelected3
+              ? "bg-blue-500 bg-opacity-20"
+              : "hover:bg-blue-500 hover:bg-opacity-20"
+          }`}
+        >
+          <img className="w-12 h-12" src={ring} alt="" />
+          <p className="desktop-text-shadow text-xs py-1 text-white">
+            Lord of the Rings
+          </p>
+        </button>
+        <button
+          onClick={() => openApp("weather")}
+          className={`h-full w-full flex flex-col justify-center items-center cursor-default ${
+            isSelected3
+              ? "bg-blue-500 bg-opacity-20"
+              : "hover:bg-blue-500 hover:bg-opacity-20"
+          }`}
+        >
+          <img className="w-12 h-12" src={weather} alt="" />
+          <p className="desktop-text-shadow text-xs py-1 text-white">
+            Weather App
           </p>
         </button>
       </div>
