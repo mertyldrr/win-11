@@ -81,13 +81,13 @@ export const Frame = ({
         bounds="parent"
       >
         <div
-          className={`draggable-handle ${
+          className={`${
             isFullscreen
               ? "w-full h-full inset-[0%] absolute"
               : "w-5/6 h-5/6 inset-[7%] absolute"
           } bg-gray-300 touch-none rounded-lg absolute`}
         >
-          <div className="flex flex-row justify-between items-center h-9 w-full">
+          <div className="draggable-handle flex flex-row justify-between items-center h-9 w-full">
             <div className="flex flex-row space-x-3 justify-center items-center px-2">
               {getIcon(appName, "w-5", "h-5")}
 
