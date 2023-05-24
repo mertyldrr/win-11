@@ -14,16 +14,13 @@
   flex-direction: column;
 }
 
-.recommended-app {
-  padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  flex-basis: 50%;
+/* .recommended-app {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  background-color: #2196f3;
   cursor: default;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
+} */
 
 .all-apps {
   font-size: 0.7em;
