@@ -65,7 +65,9 @@ export const Frame = ({
   return (
     <motion.div
       variants={itemVariants}
-      className="h-full w-full"
+      className={`${
+        isFullscreen ? "w-full h-full inset-[0%]" : "w-5/6 h-5/6 inset-[7%]"
+      } touch-none rounded-lg absolute`}
       initial={isClosed || isMinimized ? "start" : "reverseEnd"}
       animate={isMinimized || isClosed ? "reverseEnd" : "end"}
       transition={{
@@ -74,20 +76,9 @@ export const Frame = ({
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <Draggable
-        axis="both"
-        handle=".draggable-handle"
-        scale={1}
-        bounds="parent"
-      >
-        <div
-          className={`${
-            isFullscreen
-              ? "w-full h-full inset-[0%] absolute"
-              : "w-5/6 h-5/6 inset-[7%] absolute"
-          } bg-gray-300 touch-none rounded-lg absolute`}
-        >
-          <div className="draggable-handle flex flex-row justify-between items-center h-9 w-full">
+      <Draggable axis="both" handle=".draggable-handle" scale={1}>
+        <div className="w-full h-full">
+          <div className="draggable-handle flex flex-row justify-between items-center h-9 w-full bg-gray-300">
             <div className="flex flex-row space-x-3 justify-center items-center px-2">
               {getIcon(appName, "w-5", "h-5")}
 
