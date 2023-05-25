@@ -117,22 +117,19 @@ export const Desktop = () => {
           </p>
         </button>
       </div>
-
-      <div className="w-full h-full">
-        {apps.map((app) => {
-          if (!app.isActive) return null;
-          return (
-            <Frame
-              key={app.id}
-              id={app.id}
-              appName={app.name}
-              url={"https://www.bing.com"}
-              isMinimized={app.isMinimized}
-              isFullscreen={app.isFullscreen}
-            />
-          );
-        })}
-      </div>
+      {apps.map((app) => {
+        if (!app.isActive) return null;
+        return (
+          <Frame
+            key={app.id}
+            id={app.id}
+            appName={app.name}
+            url={"https://www.bing.com"}
+            isMinimized={app.isMinimized}
+            isFullscreen={app.isFullscreen}
+          />
+        );
+      })}
       <Widgets />
       <StartMenu />
       <DatePicker />
