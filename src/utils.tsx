@@ -8,6 +8,7 @@ import ring from "./assets/desktop/ring.svg";
 import { Edge } from "./components/apps/edge/Edge";
 import { Pdf } from "./components/apps/pdf/Pdf";
 import { Vscode } from "./components/apps/vscode/Vscode";
+import { defaultBrowserUrl } from "./constants";
 
 export const getIcon = (appName: string, w: string, h: string) => {
   switch (appName) {
@@ -33,7 +34,7 @@ export const getIcon = (appName: string, w: string, h: string) => {
 export const renderApp = (appName: string) => {
   switch (appName) {
     case "edge":
-      return <Edge />;
+      return <Edge url={defaultBrowserUrl} />;
     case "vscode":
       return <Vscode />;
     case "pdf":
