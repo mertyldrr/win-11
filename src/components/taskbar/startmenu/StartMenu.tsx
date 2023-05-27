@@ -25,7 +25,7 @@ export const StartMenu = () => {
         <div className="flex flex-wrap justify-between items-center py-6">
           {pinnedApps.map((app) => (
             <button
-              className="pinned-app hover:bg-white hover:bg-opacity-50 rounded-sm"
+              className="pinned-app hover:bg-white hover:bg-opacity-80 rounded-sm"
               key={app.name}
             >
               <img className="w-8 h-8" src={app.icon} alt="" />
@@ -41,7 +41,7 @@ export const StartMenu = () => {
         <div className="grid grid-cols-2 gap-x-4 py-4">
           {recommendedApps.map((app) => (
             <button
-              className="hover:bg-white hover:bg-opacity-50 rounded-sm w-full flex justify-start items-center px-4 py-3"
+              className="hover:bg-white hover:bg-opacity-80 rounded-sm w-full flex justify-start items-center px-4 py-3 cursor-default"
               key={app.name}
             >
               <img className="w-8 h-8" src={app.icon} alt="" />
@@ -51,11 +51,11 @@ export const StartMenu = () => {
         </div>
       </div>
       <div className="px-12 flex justify-between w-full border-t border-gray-400 bg-gray-100 bg-opacity-60 rounded-b-lg py-2">
-        <div className="hover:bg-white hover:bg-opacity-50 rounded-sm p-4 py-2 flex justify-between items-center">
+        <div className="hover:bg-white hover:bg-opacity-80 rounded-sm p-4 py-2 flex justify-between items-center">
           <img className="w-8 h-8" src={psyduck} alt="" />
-          <p className="text-xs ml-2">Mert</p>
+          <p className="text-xs ml-2 cursor-default">Mert</p>
         </div>
-        <button className="hover:bg-white hover:bg-opacity-50 rounded-sm px-4 py-2">
+        <button className="hover:bg-white hover:bg-opacity-80 rounded-sm px-4 py-2">
           <AiOutlinePoweroff className="w-6 h-6" />
         </button>
       </div>
