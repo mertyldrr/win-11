@@ -15,7 +15,6 @@ const searchSlice = createSlice({
   initialState,
   reducers: {
     setSearchText(state, action: PayloadAction<string>) {
-      console.log("dispatched");
       state.searchText = action.payload;
     },
   },

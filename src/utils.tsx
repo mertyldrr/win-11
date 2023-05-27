@@ -3,6 +3,8 @@ import pdf from "./assets/desktop/pdf.svg";
 import vscode from "./assets/desktop/vscode.png";
 import netflix from "./assets/taskbar/netflixLogo.svg";
 import spotify from "./assets/taskbar/spotifyLogo.svg";
+import weather from "./assets/desktop/weather.png";
+import ring from "./assets/desktop/ring.svg";
 import { Edge } from "./components/apps/edge/Edge";
 import { Pdf } from "./components/apps/pdf/Pdf";
 import { Vscode } from "./components/apps/vscode/Vscode";
@@ -19,6 +21,10 @@ export const getIcon = (appName: string, w: string, h: string) => {
       return <img className={`${w} ${h}`} src={spotify} alt="" />;
     case "pdf":
       return <img className={`${w} ${h}`} src={pdf} alt="" />;
+    case "lotr":
+      return <img className={`${w} ${h}`} src={ring} alt="" />;
+    case "weather":
+      return <img className={`${w} ${h}`} src={weather} alt="" />;
     default:
       return <img className={`${w} ${h}`} src={edge} alt="" />;
   }
@@ -47,7 +53,9 @@ export const getWindowName = (appName: string) => {
       return "Code";
     case "pdf":
       return "Adobe Acrobat";
-    default:
-      return "Microsoft Edge";
+    case "lotr":
+      return "Lord of the Rings";
+    case "weather":
+      return "Weather App";
   }
 };

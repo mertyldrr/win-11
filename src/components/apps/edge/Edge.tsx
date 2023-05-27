@@ -7,10 +7,8 @@ import {
   selectSearchText,
   setSearchText,
 } from "../../../redux/slices/searchSlice";
-import { debounce } from "lodash";
-import { useState } from "react";
-import { defaultBrowserUrl } from "../../../constants";
-import { Input } from "../../Input";
+import { useEffect, useState } from "react";
+import { SearchInput } from "../../SearchInput";
 
 interface EdgeProps {
   url?: string;
@@ -20,9 +18,10 @@ export const Edge: React.FC<EdgeProps> = ({ url }) => {
   const [localSearchText, setLocalSearchText] = useState<string>("");
   const searchText = useSelector(selectSearchText);
   const dispatch = useDispatch();
-  const debouncedSearchTextUpdate = debounce((searchText: string) => {
+
+  const debouncedSearchTextUpdate = (searchText: string) => {
     setLocalSearchText(searchText);
-  }, 300);
+  };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
@@ -30,6 +29,19 @@ export const Edge: React.FC<EdgeProps> = ({ url }) => {
       dispatch(setSearchText(localSearchText));
     }
   };
+
+  useEffect(() => {
+    if (searchText !== localSearchText) {
+      setLocalSearchText(searchText);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchText]);
+
+  useEffect(() => {
+    if (url) {
+      dispatch(setSearchText(url));
+    }
+  }, [dispatch, url]);
 
   return (
     <div className="flex flex-col w-full h-full bg-slate-200 rounded-b-lg">
@@ -44,10 +56,10 @@ export const Edge: React.FC<EdgeProps> = ({ url }) => {
         </div>
         <div className="bg-white flex-1 px-4 mr-2 h-4/5 rounded-2xl">
           <div className="text-sm w-full h-full">
-            <Input
+            <SearchInput
               twClassName={"text-sm w-full h-full outline-none"}
               type={"search"}
-              defaultValue={url ? url : defaultBrowserUrl}
+              value={localSearchText}
               onChange={(e) => debouncedSearchTextUpdate(e.target.value)}
               onKeyDown={handleKeyDown}
             />
@@ -66,7 +78,7 @@ export const Edge: React.FC<EdgeProps> = ({ url }) => {
       <Bookmarks />
       <iframe
         title="edge"
-        src={url ? url : searchText}
+        src={searchText}
         className="w-full h-full rounded-b-lg"
       />
     </div>
