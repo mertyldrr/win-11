@@ -1,8 +1,9 @@
 .desktop-grid {
   grid-template-columns: repeat(auto-fill, 90px);
-  grid-template-rows: repeat(auto-fill, 80px);
+  grid-template-rows: repeat(auto-fill, 90px);
   padding-top: 6px;
-  gap: 28px 1px;
+  padding-left: 2px;
+  gap: 18px 1px;
 }
 
 .desktop-text-shadow {

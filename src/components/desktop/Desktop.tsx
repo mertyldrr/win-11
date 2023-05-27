@@ -31,7 +31,6 @@ export const Desktop = () => {
             key={app.id}
             id={app.id}
             appName={app.name}
-            url={"https://www.bing.com"}
             isMinimized={app.isMinimized}
             isFullscreen={app.isFullscreen}
           />
