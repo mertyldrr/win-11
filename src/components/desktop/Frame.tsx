@@ -5,7 +5,6 @@ import {
   toggleMinimizeApp,
   removeApp,
 } from "../../redux/slices/appSlice";
-import { useState } from "react";
 import { getIcon, getWindowName, renderApp } from "../../utils";
 import close from "../../assets/ui/close.png";
 import maxmin from "../../assets/ui/maxmin.png";
@@ -14,24 +13,14 @@ import minimize from "../../assets/ui/minimize.png";
 type Props = {
   id: string;
   appName: string;
-  url: string;
   isMinimized: boolean;
   isFullscreen?: boolean;
 };
 
-export const Frame = ({
-  id,
-  appName,
-  url,
-  isFullscreen,
-  isMinimized,
-}: Props) => {
+export const Frame = ({ id, appName, isFullscreen, isMinimized }: Props) => {
   const dispatch = useDispatch();
 
-  const [isClosed, setIsClosed] = useState<boolean>(false);
   const handleClose = () => {
-    setIsClosed(true);
-
     dispatch(removeApp(id));
   };
 
@@ -43,12 +32,15 @@ export const Frame = ({
     dispatch(maximizeApp(id));
   };
 
+  const ruleFullscreen = isFullscreen
+    ? "w-full h-full inset-[0%]"
+    : "w-5/6 h-5/6 inset-[7%]";
+  const ruleMinimize = isMinimized ? "hidden" : "block";
+
   return (
     <Draggable axis="both" handle=".draggable-handle" scale={1}>
       <div
-        className={`${
-          isFullscreen ? "w-full h-full inset-[0%]" : "w-5/6 h-5/6 inset-[7%]"
-        } rounded-lg absolute`}
+        className={`${ruleFullscreen} ${ruleMinimize} rounded-lg absolute d`}
       >
         <div className="draggable-handle flex flex-row justify-between items-center h-9 w-full bg-gray-300">
           <div className="flex flex-row space-x-3 justify-center items-center px-2">

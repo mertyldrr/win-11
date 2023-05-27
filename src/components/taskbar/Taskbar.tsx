@@ -90,7 +90,11 @@ export const Taskbar = () => {
                   className="h-full cursor-default bg-gray-100 bg-opacity-70 px-4 mr-1 border-b-blue-400 relative"
                 >
                   {icon}
-                  <div className="border-b-2 w-11/12 mx-auto border-blue-400 absolute bottom-1 rounded-b-full left-0 right-0" />
+                  <div
+                    className={`border-b-2 ${
+                      app.isMinimized ? "w-5/12" : "w-11/12"
+                    } mx-auto border-blue-400 absolute bottom-1 rounded-b-full left-0 right-0`}
+                  />
                 </motion.button>
               );
             })}
