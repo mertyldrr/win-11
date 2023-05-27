@@ -60,6 +60,11 @@ export const desktopApps = [
     launchName: "weather",
     icon: weather,
   },
+  {
+    name: "Notepad",
+    launchName: "notepad",
+    icon: notepad,
+  },
 ];
 
 export const pinnedApps = [

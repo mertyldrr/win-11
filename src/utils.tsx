@@ -5,10 +5,12 @@ import netflix from "./assets/taskbar/netflixLogo.svg";
 import spotify from "./assets/taskbar/spotifyLogo.svg";
 import weather from "./assets/desktop/weather.png";
 import ring from "./assets/desktop/ring.svg";
+import notepad from "./assets/startmenu/notepad.png";
 import { Edge } from "./components/apps/edge/Edge";
 import { Pdf } from "./components/apps/pdf/Pdf";
 import { Vscode } from "./components/apps/vscode/Vscode";
 import { defaultBrowserUrl } from "./constants";
+import { Notepad } from "./components/apps/notepad/Notepad";
 
 export const getIcon = (appName: string, w: string, h: string) => {
   switch (appName) {
@@ -26,6 +28,8 @@ export const getIcon = (appName: string, w: string, h: string) => {
       return <img className={`${w} ${h}`} src={ring} alt="" />;
     case "weather":
       return <img className={`${w} ${h}`} src={weather} alt="" />;
+    case "notepad":
+      return <img className={`${w} ${h}`} src={notepad} alt="" />;
     default:
       return <img className={`${w} ${h}`} src={edge} alt="" />;
   }
@@ -43,6 +47,8 @@ export const renderApp = (appName: string) => {
       return <Edge url={"https://mertyldrr.github.io/lotr/"} />;
     case "weather":
       return <Edge url={"https://mertyldrr.github.io/weather-app/"} />;
+    case "notepad":
+      return <Notepad />;
   }
 };
 
@@ -58,5 +64,7 @@ export const getWindowName = (appName: string) => {
       return "Lord of the Rings";
     case "weather":
       return "Weather App";
+    case "notepad":
+      return "Notepad";
   }
 };
