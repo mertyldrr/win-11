@@ -1,15 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import newsReducer from "./redux/slices/newsSlice";
-import startMenuReducer from "./redux/slices/startMenuSlice";
-import datepickerReducer from "./redux/slices/datepickerSlice";
 import appReducer from "./redux/slices/appSlice";
 import browserReducer from "./redux/slices/browserSlice";
+import modalReducer from "./redux/slices/modalSlice";
 
 export const store = configureStore({
   reducer: {
+    modal: modalReducer,
     news: newsReducer,
-    startMenu: startMenuReducer,
-    datepicker: datepickerReducer,
     apps: appReducer,
     browser: browserReducer,
   },
