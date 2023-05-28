@@ -1,13 +1,13 @@
 import psyduck from "../../../assets/startmenu/psyduck.png";
 import { FaChevronRight } from "react-icons/fa";
 import { AiOutlinePoweroff } from "react-icons/ai";
-import { useSelector } from "react-redux";
-import { selectIsStartModalActive } from "../../../redux/slices/startMenuSlice";
 import { pinnedApps, recommendedApps } from "../../../constants";
 import "./StartMenu.css";
+import { selectIsStartMenuActive } from "../../../redux/slices/modalSlice";
+import { useAppSelector } from "../../../hooks";
 
 export const StartMenu = () => {
-  const isStartMenuActive = useSelector(selectIsStartModalActive);
+  const isStartMenuActive = useAppSelector(selectIsStartMenuActive);
   return (
     <div
       className={`container absolute bottom-3 left-0 right-0 flex flex-col pt-6 rounded-lg mx-auto transform ease-out duration-500 ${
@@ -35,7 +35,7 @@ export const StartMenu = () => {
         </div>
       </div>
       <div className="px-12">
-        <div className="flex justify-between items-center px-4">
+        <div className="px-4">
           <span className="font-medium text-sm">Recommended</span>
         </div>
         <div className="grid grid-cols-2 gap-x-4 py-4">

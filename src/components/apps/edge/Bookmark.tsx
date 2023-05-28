@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../hooks";
 import { setBrowserHistory } from "../../../redux/slices/browserSlice";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const Bookmark = ({ name, link, icon }: Props) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   return (
     <div
       className="flex flex-row items-center space-x-2 hover:bg-gray-400 hover:bg-opacity-30 p-2 rounded-sm"

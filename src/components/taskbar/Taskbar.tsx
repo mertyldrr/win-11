@@ -12,25 +12,21 @@ import { BsVolumeUp } from "react-icons/bs";
 import { RiBatteryChargeLine } from "react-icons/ri";
 import { DateTime } from "./DateTime";
 
-import { toggleNewsSidebar } from "../../redux/slices/newsSlice";
-import { toggleStartModal } from "../../redux/slices/startMenuSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { toggleDatepickerModal } from "../../redux/slices/datepickerSlice";
-
-import "./Taskbar.css";
+import {
+  toggleStartMenu,
+  toggleDatepicker,
+  toggleNewsSidebar,
+  toggleSearchMenu,
+} from "../../redux/slices/modalSlice";
 import { toggleMinimizeApp, selectApps } from "../../redux/slices/appSlice";
 import { getIcon } from "../../utils";
+import { useAppDispatch, useAppSelector } from "../../hooks";
+import "./Taskbar.css";
 
 export const Taskbar = () => {
-  const apps = useSelector(selectApps);
+  const apps = useAppSelector(selectApps);
 
-  const dispatch = useDispatch();
-  const toggleSidebar = () => {
-    dispatch(toggleNewsSidebar());
-  };
-  const toggleStartMenu = () => {
-    dispatch(toggleStartModal());
-  };
+  const dispatch = useAppDispatch();
 
   return (
     <div className="absolute bottom-0 w-full h-12 taskbar-bg">
@@ -39,7 +35,7 @@ export const Taskbar = () => {
           <motion.button
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
-            onClick={() => toggleSidebar()}
+            onClick={() => dispatch(toggleNewsSidebar())}
           >
             <img className="w-8 h-8" src={widgets} alt="" />
           </motion.button>
@@ -49,7 +45,7 @@ export const Taskbar = () => {
           <motion.button
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
-            onClick={() => toggleStartMenu()}
+            onClick={() => dispatch(toggleStartMenu())}
           >
             <img className="w-8 h-8" src={win11} alt="" />
           </motion.button>
@@ -62,6 +58,7 @@ export const Taskbar = () => {
           <motion.button
             whileTap={{ scale: 0.85 }}
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-4"
+            onClick={() => dispatch(toggleSearchMenu())}
           >
             <FiSearch className="rotate-90 w-8 h-8" />
           </motion.button>
@@ -120,7 +117,7 @@ export const Taskbar = () => {
           </motion.button>
           <motion.button
             className="h-full cursor-default hover:bg-blue-500 hover:bg-opacity-20 px-2"
-            onClick={() => dispatch(toggleDatepickerModal())}
+            onClick={() => dispatch(toggleDatepicker())}
           >
             <DateTime showDate={true} />
           </motion.button>

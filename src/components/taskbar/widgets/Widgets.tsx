@@ -1,19 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectIsSidebarActive,
-  selectNews,
-  setNews,
-} from "../../../redux/slices/newsSlice";
+import { selectNews, setNews } from "../../../redux/slices/newsSlice";
 import { DateTime } from "../DateTime";
 import { NewsColumn } from "./NewsColumn";
 import "./Widgets.css";
 import axios from "axios";
 import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
+import { selectIsNewsSidebarActive } from "../../../redux/slices/modalSlice";
 
 export const Widgets = () => {
-  const dispatch = useDispatch();
-  const isSidebarActive = useSelector(selectIsSidebarActive);
-  const news = useSelector(selectNews);
+  const dispatch = useAppDispatch();
+  const isSidebarActive = useAppSelector(selectIsNewsSidebarActive);
+  const news = useAppSelector(selectNews);
 
   useEffect(() => {
     const fetchNews = async () => {

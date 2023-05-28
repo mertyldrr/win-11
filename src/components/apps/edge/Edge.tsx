@@ -4,7 +4,6 @@ import { VscArrowLeft } from "react-icons/vsc";
 import { VscArrowRight } from "react-icons/vsc";
 
 import { Bookmarks } from "./Bookmarks";
-import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { SearchInput } from "../../SearchInput";
 import {
@@ -15,6 +14,7 @@ import {
   selectSearchText,
   setBrowserHistory,
 } from "../../../redux/slices/browserSlice";
+import { useAppDispatch, useAppSelector } from "../../../hooks";
 
 interface EdgeProps {
   url?: string;
@@ -22,11 +22,11 @@ interface EdgeProps {
 
 export const Edge: React.FC<EdgeProps> = ({ url }) => {
   const [localSearchText, setLocalSearchText] = useState<string>("");
-  const searchText = useSelector(selectSearchText);
-  const isForwardActive = useSelector(selectIsForwardActive);
-  const isBackActive = useSelector(selectIsBackActive);
+  const searchText = useAppSelector(selectSearchText);
+  const isForwardActive = useAppSelector(selectIsForwardActive);
+  const isBackActive = useAppSelector(selectIsBackActive);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const searchTextUpdate = (searchText: string) => {
     setLocalSearchText(searchText);
