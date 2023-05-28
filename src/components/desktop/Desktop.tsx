@@ -3,14 +3,15 @@ import { StartMenu } from "../taskbar/startmenu/StartMenu";
 import { Widgets } from "../taskbar/widgets/Widgets";
 
 import { Frame } from "./Frame";
-import { useSelector } from "react-redux";
 import { selectApps } from "../../redux/slices/appSlice";
 import { desktopApps } from "../../constants";
 import { DesktopApp } from "./DesktopApp";
+import { SearchMenu } from "../taskbar/searchmenu/SearchMenu";
+import { useAppSelector } from "../../hooks";
 import "./Desktop.css";
 
 export const Desktop = () => {
-  const apps = useSelector(selectApps);
+  const apps = useAppSelector(selectApps);
 
   return (
     <div className="relative h-[calc(100vh-3rem)] w-screen">
@@ -20,6 +21,7 @@ export const Desktop = () => {
             key={index}
             name={app.name}
             icon={app.icon}
+            url={app.url}
             launchName={app.launchName}
           />
         ))}
@@ -33,12 +35,14 @@ export const Desktop = () => {
             appName={app.name}
             isMinimized={app.isMinimized}
             isFullscreen={app.isFullscreen}
+            browserUrl={app.defaultUrl}
           />
         );
       })}
       <Widgets />
       <StartMenu />
       <DatePicker />
+      <SearchMenu />
     </div>
   );
 };

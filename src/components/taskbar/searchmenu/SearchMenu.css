@@ -1,0 +1,40 @@
+.searchmenu-container {
+  width: 640px;
+  height: 640px;
+  background-color: rgba(230, 230, 230, 0.9);
+}
+
+.quicksearch-text {
+  font-size: 14px;
+  margin-left: 16px;
+}
+
+.tabs-text {
+  font-size: 12px;
+}
+
+.searchmenu-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+}
+
+.top-app {
+  width: 96px;
+  height: 90px;
+  cursor: default;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-app-text {
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+.searchmenu-animation {
+  transform: translateY(120%);
+}
