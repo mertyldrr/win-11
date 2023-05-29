@@ -1,37 +1,21 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectApps, addApp } from "../../redux/slices/appSlice";
-import { v4 as uuidv4 } from "uuid";
+import { useAppDispatch } from "../../hooks";
+import { openApp } from "../../utils";
 
 type Props = {
   name: string;
   icon: string;
+  url?: string;
   launchName?: string;
 };
 
-export const DesktopApp = ({ name, icon, launchName }: Props) => {
+export const DesktopApp = ({ name, icon, url, launchName }: Props) => {
   const [isSelected, setIsSelected] = useState(false);
-  const apps = useSelector(selectApps);
-  const dispatch = useDispatch();
-
-  const openApp = (name: string) => {
-    if (apps.some((app) => app.name === name)) return;
-    const randomId = uuidv4();
-    dispatch(
-      addApp({
-        id: randomId,
-        name,
-        isActive: true,
-        isSelected: true,
-        isMinimized: false,
-        isFullscreen: false,
-      })
-    );
-  };
+  const dispatch = useAppDispatch();
 
   const onAppClick = () => {
     if (!launchName) return;
-    openApp(launchName);
+    openApp(launchName, dispatch, url);
     setIsSelected(!isSelected);
   };
 

@@ -11,6 +11,9 @@ import { Pdf } from "./components/apps/pdf/Pdf";
 import { Vscode } from "./components/apps/vscode/Vscode";
 import { defaultBrowserUrl } from "./constants";
 import { Notepad } from "./components/apps/notepad/Notepad";
+import { addApp } from "./redux/slices/appSlice";
+import { v4 as uuidv4 } from "uuid";
+import { Dispatch } from "redux";
 
 export const getIcon = (appName: string, w: string, h: string) => {
   switch (appName) {
@@ -35,7 +38,7 @@ export const getIcon = (appName: string, w: string, h: string) => {
   }
 };
 
-export const renderApp = (appName: string) => {
+export const renderApp = (appName: string, browserUrl?: string) => {
   switch (appName) {
     case "edge":
       return <Edge url={defaultBrowserUrl} />;
@@ -43,12 +46,15 @@ export const renderApp = (appName: string) => {
       return <Vscode />;
     case "pdf":
       return <Pdf />;
-    case "lotr":
-      return <Edge url={"https://mertyldrr.github.io/lotr/"} />;
-    case "weather":
-      return <Edge url={"https://mertyldrr.github.io/weather-app/"} />;
     case "notepad":
       return <Notepad />;
+    case "weather":
+    case "lotr":
+    case "news":
+    case "nba":
+    case "bing":
+    case "stocks":
+      return <Edge url={browserUrl} />;
   }
 };
 
@@ -66,5 +72,26 @@ export const getWindowName = (appName: string) => {
       return "Weather App";
     case "notepad":
       return "Notepad";
+    default:
+      return "Microsoft Edge";
   }
+};
+
+export const openApp = (
+  name: string,
+  dispatch: Dispatch,
+  browserUrl?: string
+) => {
+  const randomId = uuidv4();
+  dispatch(
+    addApp({
+      id: randomId,
+      name,
+      isActive: true,
+      isSelected: true,
+      isMinimized: false,
+      isFullscreen: false,
+      defaultUrl: browserUrl,
+    })
+  );
 };

@@ -1,5 +1,4 @@
 import Draggable from "react-draggable";
-import { useDispatch } from "react-redux";
 import {
   maximizeApp,
   toggleMinimizeApp,
@@ -9,16 +8,24 @@ import { getIcon, getWindowName, renderApp } from "../../utils";
 import close from "../../assets/ui/close.png";
 import maxmin from "../../assets/ui/maxmin.png";
 import minimize from "../../assets/ui/minimize.png";
+import { useAppDispatch } from "../../hooks";
 
 type Props = {
   id: string;
   appName: string;
   isMinimized: boolean;
   isFullscreen?: boolean;
+  browserUrl?: string;
 };
 
-export const Frame = ({ id, appName, isFullscreen, isMinimized }: Props) => {
-  const dispatch = useDispatch();
+export const Frame = ({
+  id,
+  appName,
+  isFullscreen,
+  isMinimized,
+  browserUrl,
+}: Props) => {
+  const dispatch = useAppDispatch();
 
   const handleClose = () => {
     dispatch(removeApp(id));
@@ -69,7 +76,7 @@ export const Frame = ({ id, appName, isFullscreen, isMinimized }: Props) => {
             </button>
           </div>
         </div>
-        <div className="h-full w-full">{renderApp(appName)}</div>
+        <div className="h-full w-full">{renderApp(appName, browserUrl)}</div>
       </div>
     </Draggable>
   );
