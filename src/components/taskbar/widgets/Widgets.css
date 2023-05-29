@@ -1,12 +1,11 @@
 .sidebar {
   backdrop-filter: blur(1.5rem);
   width: 760px;
-  /* background-color: rgba(232, 232, 232, 0.3); */
+  background-color: rgb(255, 255, 255, 0.2);
 }
 
-/* Generate a random hue value between 0 and 360 */
-
 .gradient-random {
+  /* Generate a random hue value between 0 and 360 */
   --randHue: random(0, 360);
   background-image: linear-gradient(
     transparent 33%,
