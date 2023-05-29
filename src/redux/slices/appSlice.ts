@@ -8,6 +8,7 @@ type App = {
   isSelected: boolean;
   isMinimized: boolean;
   isFullscreen: boolean;
+  defaultUrl?: string;
 };
 
 type AppState = {
@@ -23,6 +24,9 @@ const appSlice = createSlice({
   initialState,
   reducers: {
     addApp(state, action: PayloadAction<App>) {
+      const apps = state.apps;
+      const { name } = action.payload;
+      if (apps.some((app) => app.name === name && app.name !== "edge")) return;
       state.apps.push(action.payload);
     },
     removeApp(state, action: PayloadAction<string>) {
