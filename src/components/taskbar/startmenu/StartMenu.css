@@ -1,5 +1,6 @@
 .container {
   width: 640px;
+  height: 640px;
   background-color: rgba(230, 230, 230, 0.9);
 }
 
